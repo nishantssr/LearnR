@@ -45,6 +45,12 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.7.10</version>
+		</dependency>
+
 		<!-- Apache Camel -->
 
 		<dependency>
@@ -85,7 +91,11 @@
 			<version>${camel.version}</version>
 			<!-- use the same version as your Camel core version -->
 		</dependency>
-
+		<dependency>
+			<groupId>io.hawt</groupId>
+			<artifactId>hawtio-embedded</artifactId>
+			<version>1.4.14</version>
+		</dependency>
 
 	</dependencies>
 

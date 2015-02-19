@@ -1,20 +1,23 @@
 package AppSearch;
 
+import io.hawt.embedded.Main;
+
 import org.apache.camel.CamelContext;
-import org.apache.camel.component.metrics.routepolicy.MetricsRoutePolicyFactory;
 import org.apache.camel.impl.DefaultCamelContext;
 
 public class SearchQ {
-	public static void source(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 		CamelContext cont = new DefaultCamelContext();
-
 		cont.addRoutes(new AppRouter());
-		cont.addRoutePolicyFactory(new MetricsRoutePolicyFactory());
+		Main main = new Main();
+		main.setWar("/home/uttam/Downloads/hawtio");
+		main.run();
+		cont.start();
+		Thread.sleep(210000);
+		// cont.addRoutePolicyFactory(new MetricsRoutePolicyFactory());
 		// cont.addRoutes(new QupRouter());
 		// cont.addRoutes(new RbscRouter());
 		// cont.addRoutes(new InsideSearchRoute());
-		cont.start();
-		Thread.sleep(210000);
 
 	}
 }

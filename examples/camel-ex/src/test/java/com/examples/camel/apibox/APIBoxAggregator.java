@@ -27,7 +27,7 @@ public class APIBoxAggregator extends RouteBuilder {
 
 		from("direct:service_aggregate").multicast(new SimpleAggrStrategy()).parallelProcessing()
 			.enrich(CUSTOMER_URL + "?bridgeEndpoint=true&throwExceptionOnFailure=false")
-			.enrich(ORDER_URL + "?bridgeEndpoint=true&throwExceptionOnFailure=false")
+			.enrich(ORDER_URL + "?bridgeEndpoint=true&throwExceptionOnFailure=false").to("metrics:counter:simple.counter")
 			.end();
 
 	}
