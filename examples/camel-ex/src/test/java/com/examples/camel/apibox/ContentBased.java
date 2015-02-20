@@ -9,13 +9,13 @@ public class ContentBased extends RouteBuilder {
 	public void configure() throws Exception {
 
 		from("jetty:http://0.0.0.0:8080/content")
+				.to("metrics:histogram:simple.histogram?value=700")
 
 				.choice()
 				.when(header("service").isEqualTo("customer"))
 				.to("http://localhost:5000/customer?bridgeEndpoint=true&throwExceptionOnFailure=false")
 				.otherwise()
-				.to("http://localhost:5000/order?bridgeEndpoint=true&throwExceptionOnFailure=false")
-				.to("metrics:histogram:simple.histogram?value=700");
+				.to("http://localhost:5000/order?bridgeEndpoint=true&throwExceptionOnFailure=false");
 
 	}
 

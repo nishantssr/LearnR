@@ -10,7 +10,7 @@ public class SearchQ {
 		CamelContext cont = new DefaultCamelContext();
 		cont.addRoutes(new AppRouter());
 		Main main = new Main();
-		main.setWar("/home/uttam/Downloads/hawtio");
+		main.setWar("/home/uttam/Downloads/hawtio");   //refer http://hawt.io/getstarted/
 		main.run();
 		cont.start();
 		Thread.sleep(210000);
@@ -18,6 +18,6 @@ public class SearchQ {
 		// cont.addRoutes(new QupRouter());
 		// cont.addRoutes(new RbscRouter());
 		// cont.addRoutes(new InsideSearchRoute());
-
+		
 	}
 }
