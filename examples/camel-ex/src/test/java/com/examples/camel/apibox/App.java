@@ -16,16 +16,15 @@ public class App {
 		final CamelContext cc = new DefaultCamelContext();
 
 		// Add routes
-		cc.addRoutes(new Proxy());
-		// cc.addRoutes(new ContentBased());
+		// cc.addRoutes(new Proxy());
+		cc.addRoutes(new ContentBased());
 		Main main = new Main();
 		main.setWar("/home/uttam/Downloads/hawt"); // download and specify the
-														// path of this link
-														// ->https://oss.sonatype.org/content/repositories/public/io/hawt/sample/1.4.45/sample-1.4.45.war
+													// path of this link
+													// ->https://oss.sonatype.org/content/repositories/public/io/hawt/sample/1.4.45/sample-1.4.45.war
 		main.run();
 		cc.start();
 		cc.start();
-
 		// Handle shutdown
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {

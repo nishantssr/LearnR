@@ -96,7 +96,6 @@
 			<artifactId>hawtio-embedded</artifactId>
 			<version>1.4.14</version>
 		</dependency>
-
 	</dependencies>
 
 	<build>
@@ -114,6 +113,11 @@
 				<groupId>io.hawt</groupId>
 				<artifactId>hawtio-maven-plugin</artifactId>
 				<version>1.4.14</version>
+				<configuration>
+					<logClasspath>true</logClasspath>
+					<port>9090</port>
+					<authentication>false</authentication>
+				</configuration>
 			</plugin>
 		</plugins>
 
