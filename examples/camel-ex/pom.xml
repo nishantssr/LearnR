@@ -36,13 +36,19 @@
 		</dependency>
 
 
-		<!-- Log Back -->
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
-		</dependency>
+		</dependency> 
+		
+		<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>log4j-over-slf4j</artifactId>
+	<version>1.7.10</version>
+</dependency>
+		
 
 
 		<!-- Apache Camel -->
@@ -73,13 +79,13 @@
 
 
 		<!-- -->
-		
+
 		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-mapper-asl</artifactId>
-		    <version>1.9.13</version>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>org.json</groupId>
@@ -87,12 +93,25 @@
 			<version>20090211</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-metrics</artifactId>
+			<version>2.14.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-
+			<plugin>
+				<groupId>io.hawt</groupId>
+				<artifactId>hawtio-maven-plugin</artifactId>
+				<version>1.4.14</version>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${mvn.compiler.plugin.version}</version>
