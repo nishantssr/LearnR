@@ -13,7 +13,6 @@ public class NotificationLogging {
 		CamelContext context = new DefaultCamelContext();
 		context.getManagementStrategy().addEventNotifier(
 				new CustomNotification());
-		context.setStreamCaching(true);
 		context.addRoutes(new RouteBuilder() {
 
 			@Override

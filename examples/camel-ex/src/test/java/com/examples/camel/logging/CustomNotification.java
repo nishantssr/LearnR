@@ -16,7 +16,7 @@ public class CustomNotification extends EventNotifierSupport {
 		// TODO Auto-generated method stub
 		if (event instanceof ExchangeSentEvent) {
 			ExchangeSentEvent sent = (ExchangeSentEvent) event;
-			log.info(">>>>   Took " + sent.getTimeTaken());
+			log.info(">>>>   Took " + sent.getTimeTaken()+ " milli sec");
 
 		}
 		if (event instanceof ExchangeCompletedEvent) {
@@ -41,7 +41,7 @@ public class CustomNotification extends EventNotifierSupport {
 					.getProperty(Exchange.CREATED_TIMESTAMP, Date.class);
 			Date now = new Date();
 			long elapsed = now.getTime() - created.getTime();
-			log.info(">>> Took " + elapsed);
+			log.info(">>> Took " + elapsed+" milli sec");
 
 		}
 
