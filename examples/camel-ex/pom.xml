@@ -79,6 +79,8 @@
 
 		<!-- -->
 
+
+
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
@@ -109,16 +111,13 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>io.hawt</groupId>
 				<artifactId>hawtio-maven-plugin</artifactId>
 				<version>1.4.14</version>
-				<configuration>
-					<logClasspath>true</logClasspath>
-					<port>9090</port>
-					<authentication>false</authentication>
-				</configuration>
 			</plugin>
+
 		</plugins>
 
 

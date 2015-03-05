@@ -1,8 +1,7 @@
 package com.examples.camel.apibox;
 
-import io.hawt.embedded.Main;
-
 import org.apache.camel.CamelContext;
+import org.apache.camel.component.metrics.routepolicy.MetricsRoutePolicyFactory;
 import org.apache.camel.impl.DefaultCamelContext;
 
 /**
@@ -14,17 +13,16 @@ public class App {
 	public static void main(String[] args) throws Exception {
 
 		final CamelContext cc = new DefaultCamelContext();
+		MetricsRoutePolicyFactory mrpf = new MetricsRoutePolicyFactory();
+		mrpf.setUseJmx(true);
 
+		cc.addRoutePolicyFactory(new MetricsRoutePolicyFactory());
 		// Add routes
-		// cc.addRoutes(new Proxy());
+		cc.addRoutes(new Proxy());
 		cc.addRoutes(new ContentBased());
-		Main main = new Main();
-		main.setWar("/home/uttam/Downloads/hawt"); // download and specify the
-													// path of this link
-													// ->https://oss.sonatype.org/content/repositories/public/io/hawt/sample/1.4.45/sample-1.4.45.war
-		main.run();
+
 		cc.start();
-		cc.start();
+
 		// Handle shutdown
 		Runtime.getRuntime().addShutdownHook(new Thread() {
 			public void run() {
@@ -37,13 +35,14 @@ public class App {
 		});
 
 		waitForStop();
+		cc.start();
 
 	}
 
 	static void waitForStop() {
 		while (true) {
 			try {
-				Thread.sleep(Long.MAX_VALUE);
+				Thread.sleep(2540);
 			} catch (InterruptedException e) {
 				break;
 			}
