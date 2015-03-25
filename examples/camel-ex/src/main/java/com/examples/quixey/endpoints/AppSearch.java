@@ -24,7 +24,7 @@ public class AppSearch {
 				from(
 						"http://search-be.stage.quixey.com:8080/app_search?q=hello")
 						.process(new Transformation1())
-						.to("jetty:http://scoring-i-96b9ba5c.us-west-1c.stage.quixey.com:8778/score")
+						.to("jetty:http://scoring-i-7bbcafb3.us-west-1a.stage.quixey.com:8778/score")
 						.setHeader(Exchange.HTTP_METHOD, constant("POST"))
 						.process(new Processor() {
 
